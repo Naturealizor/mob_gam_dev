@@ -8,6 +8,7 @@ public class test_script : MonoBehaviour
     void Start()
     {
         Debug.Log("Hello World");
+        Debug.Log("Edited this from the web browser on github");
     }
 
     // Update is called once per frame
