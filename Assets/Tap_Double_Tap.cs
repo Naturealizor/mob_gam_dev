@@ -7,12 +7,15 @@ public class Tap_Double_Tap : MonoBehaviour
 
     float tapTimer = 0f;
     bool tapped = false;
+    Rigidbody rb;
+
+    public int jumpPower = 5;
     public float doubleTapInterval = 0.2f;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        rb = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -45,7 +48,10 @@ public class Tap_Double_Tap : MonoBehaviour
         tapTimer = 0;
 
         // change the color to a random color
-        this.GetComponent<Renderer>().material.color = Random.ColorHSV();
+        // this.GetComponent<Renderer>().material.color = Random.ColorHSV();
+
+        // Code the jump mechanic
+        rb.AddRelativeForce(Vector3.up * jumpPower, ForceMode.Impulse);
     }
     void DoubleTap () {
         Debug.Log("<color=blue>Double Tap</color>");
@@ -53,10 +59,10 @@ public class Tap_Double_Tap : MonoBehaviour
         tapTimer = 0;
 
         // increase the size by 20%
-        this.transform.localScale += Vector3.one * 0.2f;
+        // this.transform.localScale += Vector3.one * 0.2f;
         // if scale is greater than 5, reset to 1
-        if(this.transform.localScale.x > 5) {
-            this.transform.localScale = Vector3.one;
-        }
+        // if(this.transform.localScale.x > 5) {
+        //     this.transform.localScale = Vector3.one;
+        // }
     }
 }
