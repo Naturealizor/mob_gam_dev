@@ -58,6 +58,7 @@ public class Tap_Double_Tap : MonoBehaviour
         Debug.Log("Timer = " + tapTimer);
         tapTimer = 0;
 
+        rb.AddRelativeForce(Vector3.up * jumpPower * 2, ForceMode.Impulse)
         // increase the size by 20%
         // this.transform.localScale += Vector3.one * 0.2f;
         // if scale is greater than 5, reset to 1
