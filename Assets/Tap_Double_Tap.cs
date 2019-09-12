@@ -9,7 +9,9 @@ public class Tap_Double_Tap : MonoBehaviour
     bool tapped = false;
     Rigidbody rb;
 
-    public int jumpPower = 5;
+    public int jumpPower = 7;
+
+    bool grounded = false;
     public float doubleTapInterval = 0.2f;
 
     // Start is called before the first frame update
@@ -31,7 +33,8 @@ public class Tap_Double_Tap : MonoBehaviour
             }
         }
 
-        if(Input.anyKeyDown) {
+        // && grounded
+        if(Input.anyKeyDown ) {
             // a wild tap appears! If a tap happens
             if(tapped) {
                 DoubleTap();
@@ -58,12 +61,22 @@ public class Tap_Double_Tap : MonoBehaviour
         Debug.Log("Timer = " + tapTimer);
         tapTimer = 0;
 
-        rb.AddRelativeForce(Vector3.up * jumpPower * 2, ForceMode.Impulse)
+        rb.AddRelativeForce(Vector3.up * jumpPower * 2, ForceMode.Impulse);
         // increase the size by 20%
         // this.transform.localScale += Vector3.one * 0.2f;
         // if scale is greater than 5, reset to 1
         // if(this.transform.localScale.x > 5) {
         //     this.transform.localScale = Vector3.one;
         // }
+    }
+    void OnTriggerEnter(Collider other) {
+        if(other.gameObject.CompareTag("Ground")) {
+            grounded = true;
+        }
+    }
+    void OnTriggerExit(Collider other) {
+        if(other.gameObject.CompareTag("Ground")) {
+            grounded = false;
+        }
     }
 }

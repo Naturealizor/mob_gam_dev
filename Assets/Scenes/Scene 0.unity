@@ -1122,7 +1122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d541015981fa444eb7bbd394af66a9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 5
+  jumpPower: 10
   doubleTapInterval: 0.2
 --- !u!54 &1532653105
 Rigidbody:
