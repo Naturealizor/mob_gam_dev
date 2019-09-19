@@ -7,11 +7,10 @@ public class Tap_Double_Tap : MonoBehaviour
 
     float tapTimer = 0f;
     bool tapped = false;
-    Rigidbody rb;
-
-    public int jumpPower = 7;
-
     bool grounded = false;
+    Rigidbody rb;
+    public int forwardSpeed = 20;
+    public int jumpPower = 5;
     public float doubleTapInterval = 0.2f;
 
     // Start is called before the first frame update
@@ -43,6 +42,10 @@ public class Tap_Double_Tap : MonoBehaviour
                 tapped = true;
             }   
         }
+    }
+
+    void FixedUpdate() {
+        rb.AddRelativeForce(Vector3.right * forwardSpeed);
     }
 
     void SingleTap() {
