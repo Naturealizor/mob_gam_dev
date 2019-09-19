@@ -30,6 +30,9 @@ public class CannonController : MonoBehaviour
             
         }
 
+        // platform dependent compilation: #if PLATFORM { code here } #endif
+        #if UNITY_IOS
+
         if(Input.touchCount > 0) {
             Touch touch = Input.GetTouch(0);
 
@@ -42,6 +45,17 @@ public class CannonController : MonoBehaviour
                 timer = 0;
             }
         }
+        #endif
+
+        // platform dependent compilation: #if PLATFORM { code here } #endif
+        #if UNITY_IOS
+        if(Input.GetMouseButtonDown(0)) {
+            timerIsGoing = true;
+        }
+        if(Input.GetMouseButtonUp(0)) {
+            if(timerIsGoing) Shoot();
+        }
+        #endif
     }
 
     void Shoot() {
