@@ -44,16 +44,16 @@ public class Hold : MonoBehaviour
                 rend.material.color = Color.yellow;
                 timerIsGoing = true;
             }
-            if(touch.phase == TouchPhase.Moved) {
-                Vector2 pos = touch.position;
-                Debug.Log("Touch position = " + touch.position);
+            // if(touch.phase == TouchPhase.Moved) {
+            //     Vector2 pos = touch.position;
+            //     Debug.Log("Touch position = " + touch.position);
 
-                pos.x = (pos.x - width) / width;
-                pos.y = (pos.y - height) / height;
-                position = new Vector3(pos.x * 3f, pos.y * 3f, 0);
+            //     pos.x = (pos.x - width) / width;
+            //     pos.y = (pos.y - height) / height;
+            //     position = new Vector3(pos.x * 3f, pos.y * 3f, 0);
 
-                this.transform.position = position;
-            }
+            //     this.transform.position = position;
+            // }
 
             if(touch.phase == TouchPhase.Ended) {
                 rend.material.color = originalColor;
@@ -62,14 +62,14 @@ public class Hold : MonoBehaviour
             }
         }
         // resizing cube with 2 finger touch
-        // if(Input.touchCount <= 1) {
-        //     transform.localScale = Vector3.one;
-        // }
-        // if(Input.touchCount == 2) {
-        //     transform.localScale = Vector3.one * 2;
-        // }
-        // if(Input.touchCount == 3) {
-        //     transform.localScale = Vector3.one * 3;
-        // }
+        if(Input.touchCount <= 1) {
+            transform.localScale = Vector3.one;
+        }
+        if(Input.touchCount == 2) {
+            transform.localScale = Vector3.one * 2;
+        }
+        if(Input.touchCount == 3) {
+            transform.localScale = Vector3.one * 3;
+        }
     }
 }

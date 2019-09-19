@@ -9,7 +9,7 @@ public class Tap_Double_Tap : MonoBehaviour
     bool tapped = false;
     bool grounded = false;
     Rigidbody rb;
-    public int forwardSpeed = 20;
+    public int forwardSpeed = 80;
     public int jumpPower = 5;
     public float doubleTapInterval = 0.2f;
 
@@ -33,7 +33,7 @@ public class Tap_Double_Tap : MonoBehaviour
         }
 
         // && grounded
-        if(Input.anyKeyDown ) {
+        if(Input.anyKeyDown && grounded) {
             // a wild tap appears! If a tap happens
             if(tapped) {
                 DoubleTap();
