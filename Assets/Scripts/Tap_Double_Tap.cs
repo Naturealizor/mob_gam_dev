@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Tap_Double_Tap : MonoBehaviour
 {
@@ -12,11 +13,14 @@ public class Tap_Double_Tap : MonoBehaviour
     public int forwardSpeed = 10;
     public int jumpPower = 5;
     public float doubleTapInterval = 0.2f;
+    public int score = 0;
+    TextMeshPro scoreText;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody>();
+        scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshPro>();
     }
 
     // Update is called once per frame
@@ -45,7 +49,7 @@ public class Tap_Double_Tap : MonoBehaviour
     }
 
     void FixedUpdate() {
-        rb.AddRelativeForce(Vector3.right * forwardSpeed);
+        rb.AddRelativeForce(Vector3.forward * forwardSpeed);
     }
 
     void SingleTap() {
@@ -75,6 +79,11 @@ public class Tap_Double_Tap : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.CompareTag("Ground")) {
             grounded = true;
+        }
+        else if(other.gameObject.CompareTag("Pickup")) {
+            score += 1000;
+           // scoreText.Text = "Score = " + score;
+            Destroy(other.gameObject);
         }
     }
     void OnTriggerExit(Collider other) {
