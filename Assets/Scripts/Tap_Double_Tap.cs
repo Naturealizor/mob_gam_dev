@@ -82,7 +82,7 @@ public class Tap_Double_Tap : MonoBehaviour
         }
         else if(other.gameObject.CompareTag("Pickup")) {
             score += 1000;
-           // scoreText.Text = "Score = " + score;
+            scoreText.text = "Score = " + score;
             Destroy(other.gameObject);
         }
     }
