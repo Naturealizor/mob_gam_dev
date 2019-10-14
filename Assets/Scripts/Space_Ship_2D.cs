@@ -48,7 +48,7 @@ public class Space_Ship_2D : MonoBehaviour
             health -= 10;
             if(health <= 0) {
                 print("You Died");
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
             }
         } else if(other.gameObject.CompareTag("Pickup")) {
             score += 50;

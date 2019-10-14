@@ -8,4 +8,9 @@ public class Main_Menu_Controller : MonoBehaviour
     public void SwitchScene(int index = 0) {
         SceneManager.LoadScene(index);          // load the scene that as been specified
     }
+
+    public void QuitGame() {
+        Debug.Log("Quit!");
+        Application.Quit();
+    }
 }

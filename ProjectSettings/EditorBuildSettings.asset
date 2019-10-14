@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HoldingGame.unity
     guid: 4f3ac229c73fc7741810968c4fceda25
+  - enabled: 1
+    path: Assets/Scenes/Space_Collector.unity
+    guid: e99a4f6a0b5544e66849580f0ec044d2
   m_configObjects: {}
