@@ -8,6 +8,8 @@ TagManager:
   - Target
   - Pickup
   - Asteroid
+  - BtnLeft
+  - BtnRight
   layers:
   - Default
   - TransparentFX

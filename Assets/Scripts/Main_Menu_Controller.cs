@@ -13,4 +13,8 @@ public class Main_Menu_Controller : MonoBehaviour
         Debug.Log("Quit!");
         Application.Quit();
     }
+
+    // public void UpdateTurnDirection(int direction) {
+    //     UpdateTurnDirection = direction;
+    // }
 }
