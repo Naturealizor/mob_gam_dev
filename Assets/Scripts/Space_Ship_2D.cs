@@ -41,6 +41,10 @@ public class Space_Ship_2D : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape)) {
             Pause();
         }
+        if(health == 0) {
+            playerIsDead = true;
+            youDied();
+        }
     }
 
     void FixedUpdate() 
@@ -52,13 +56,23 @@ public class Space_Ship_2D : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("Asteroid")) {
             health -= 10;
-            //Death();
-        } else if(other.gameObject.CompareTag("Pickup")) {
+            youDied();
+        } else if(other.gameObject.CompareTag("Pickup")){
             score += 50;
-            scoreText.text = "Score = " + score;
+            
+            Destroy(other.gameObject);
         } else if(other.gameObject.CompareTag("Wall")) {
             health -= 100;
-            //Death();
+            youDied();
+        }
+        
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if(other.gameObject.CompareTag("Pickup")){
+            score += 50;
+            scoreText.text = "Score = " + score;
+            Destroy(other.gameObject);
         }
     }
 
@@ -68,6 +82,8 @@ public class Space_Ship_2D : MonoBehaviour
     public GameObject resetButton;
     public GameObject saveButton;
     public GameObject deathScreen;
+    public GameObject restartButton;
+    public GameObject menuButton;
 
 
     void Pause() {
@@ -84,23 +100,36 @@ public class Space_Ship_2D : MonoBehaviour
             saveButton.SetActive(true);
             Save();
         }
-        
-        //pauseMenu.SetActive(!gameIsPaused);
 
         // if paused, make it NOT paused. if NOT paused, make it paused.
         gameIsPaused = !gameIsPaused;
     }
 
     void youDied() {
-        if(health = 0) {
-            playerIsDead = true;
             if (playerIsDead) {
-                deathScreen.SetActive(true);
                 Destroy(this.gameObject);
-                SceneManager.LoadScene("Space_Collector");
-            }
+                deathScreen.SetActive(true);
+                restartButton.SetActive(true);
+                menuButton.SetActive(true);
+        } else {
+            deathScreen.SetActive(false);
         }
 
+
+    }
+
+    public void Score() {
+        scoreText.text = "Score = " + score;
+    }
+
+    public void Restart() {
+        Debug.Log("Did this work?");
+        SceneManager.LoadScene("Space_Collector");
+        Load();
+    }
+
+    public void Menu() {
+        SceneManager.LoadScene("Title_Screen");
     }
 
     public void Save() {

@@ -567,6 +567,7 @@ GameObject:
   - component: {fileID: 112393306}
   - component: {fileID: 112393308}
   - component: {fileID: 112393307}
+  - component: {fileID: 112393309}
   m_Layer: 0
   m_Name: Pickup (1)
   m_TagString: Pickup
@@ -670,6 +671,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &112393309
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112393305}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.23
 --- !u!1 &131114336
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,6 +698,7 @@ GameObject:
   - component: {fileID: 131114338}
   - component: {fileID: 131114337}
   - component: {fileID: 131114339}
+  - component: {fileID: 131114340}
   m_Layer: 0
   m_Name: Pickup
   m_TagString: Pickup
@@ -784,6 +802,22 @@ PolygonCollider2D:
       - {x: 0.22999999, y: -0.19}
       - {x: 0.22999999, y: 0.12}
       - {x: 0.14999999, y: 0.21}
+--- !u!58 &131114340
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131114336}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.23
 --- !u!1 &140914373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1417,7 +1451,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 248117234}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1891535885}
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &248117234
@@ -2251,7 +2296,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 318297502}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1891535885}
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &318297502
@@ -3673,7 +3729,7 @@ RectTransform:
   m_Children:
   - {fileID: 1074146560}
   m_Father: {fileID: 1610304244}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4787,6 +4843,7 @@ GameObject:
   - component: {fileID: 676484975}
   - component: {fileID: 676484977}
   - component: {fileID: 676484976}
+  - component: {fileID: 676484978}
   m_Layer: 0
   m_Name: Pickup (7)
   m_TagString: Pickup
@@ -4890,6 +4947,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &676484978
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676484974}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.23
 --- !u!1 &684919286
 GameObject:
   m_ObjectHideFlags: 0
@@ -5347,7 +5420,7 @@ GameObject:
   - component: {fileID: 718364971}
   m_Layer: 5
   m_Name: ScoreText
-  m_TagString: Untagged
+  m_TagString: ScoreText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5364,7 +5437,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1610304244}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5842,7 +5915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &801910731
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5859,7 +5932,7 @@ RectTransform:
   - {fileID: 1710703742}
   - {fileID: 1267883587}
   m_Father: {fileID: 1610304244}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7529,6 +7602,7 @@ GameObject:
   - component: {fileID: 980645150}
   - component: {fileID: 980645152}
   - component: {fileID: 980645151}
+  - component: {fileID: 980645153}
   m_Layer: 0
   m_Name: Pickup (5)
   m_TagString: Pickup
@@ -7632,6 +7706,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &980645153
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980645149}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.23
 --- !u!1 &982069629
 GameObject:
   m_ObjectHideFlags: 0
@@ -9975,6 +10065,7 @@ GameObject:
   - component: {fileID: 1195766460}
   - component: {fileID: 1195766462}
   - component: {fileID: 1195766461}
+  - component: {fileID: 1195766463}
   m_Layer: 0
   m_Name: Pickup (4)
   m_TagString: Pickup
@@ -10078,6 +10169,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1195766463
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195766459}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.23
 --- !u!1 &1197556418
 GameObject:
   m_ObjectHideFlags: 0
@@ -10311,6 +10418,7 @@ GameObject:
   - component: {fileID: 1231709938}
   - component: {fileID: 1231709940}
   - component: {fileID: 1231709939}
+  - component: {fileID: 1231709941}
   m_Layer: 0
   m_Name: Pickup (2)
   m_TagString: Pickup
@@ -10414,6 +10522,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1231709941
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231709937}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.23
 --- !u!1 &1243434781
 GameObject:
   m_ObjectHideFlags: 0
@@ -13296,7 +13420,7 @@ RectTransform:
   - {fileID: 318297500}
   - {fileID: 605830931}
   m_Father: {fileID: 1610304244}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -14052,11 +14176,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 718364970}
   - {fileID: 1615325987}
   - {fileID: 531544821}
   - {fileID: 801910731}
   - {fileID: 1535733237}
+  - {fileID: 718364970}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14270,7 +14394,7 @@ RectTransform:
   m_Children:
   - {fileID: 2075671984}
   m_Father: {fileID: 1610304244}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14761,6 +14885,7 @@ GameObject:
   - component: {fileID: 1665168880}
   - component: {fileID: 1665168882}
   - component: {fileID: 1665168881}
+  - component: {fileID: 1665168883}
   m_Layer: 0
   m_Name: Pickup (3)
   m_TagString: Pickup
@@ -14864,6 +14989,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1665168883
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665168879}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.23
 --- !u!1 &1684894511
 GameObject:
   m_ObjectHideFlags: 0
@@ -16521,7 +16662,9 @@ MonoBehaviour:
   pauseMenu: {fileID: 801910730}
   resetButton: {fileID: 2004253508}
   saveButton: {fileID: 1710703741}
-  deathScreen: {fileID: 0}
+  deathScreen: {fileID: 1535733236}
+  restartButton: {fileID: 248117231}
+  menuButton: {fileID: 318297499}
 --- !u!50 &1891535886
 Rigidbody2D:
   serializedVersion: 4
@@ -16776,6 +16919,7 @@ GameObject:
   - component: {fileID: 1982295430}
   - component: {fileID: 1982295432}
   - component: {fileID: 1982295431}
+  - component: {fileID: 1982295433}
   m_Layer: 0
   m_Name: Pickup (8)
   m_TagString: Pickup
@@ -16879,6 +17023,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1982295433
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982295429}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.23
 --- !u!1 &1993089900
 GameObject:
   m_ObjectHideFlags: 0
@@ -16890,6 +17050,7 @@ GameObject:
   - component: {fileID: 1993089901}
   - component: {fileID: 1993089903}
   - component: {fileID: 1993089902}
+  - component: {fileID: 1993089904}
   m_Layer: 0
   m_Name: Pickup (6)
   m_TagString: Pickup
@@ -16993,6 +17154,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1993089904
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993089900}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.23
 --- !u!1 &1993125680
 GameObject:
   m_ObjectHideFlags: 0

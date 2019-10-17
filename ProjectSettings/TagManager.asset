@@ -11,6 +11,7 @@ TagManager:
   - BtnLeft
   - BtnRight
   - Wall
+  - ScoreText
   layers:
   - Default
   - TransparentFX
