@@ -7,14 +7,14 @@ using TMPro;
 
 public class Space_Ship_2D : MonoBehaviour
 {
-    float shotPower = 1;
-    bool timerIsGoing = false;
-    float timer = 0;
+    // float shotPower = 1;
+    // bool timerIsGoing = false;
+    // float timer = 0;
     public float speed = 10;
     public float rotSpeed = 10;
     public int health = 100;
     public int score = 0;
-    TextMeshPro scoreText;
+    public TextMeshProUGUI scoreText;
     // GUIText scoreText;
 
     private float turnDirection = 0;
@@ -23,7 +23,7 @@ public class Space_Ship_2D : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
-        scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshPro>();
+        scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
         // GameObject ScoreText 
         pauseMenu.SetActive(false);
         deathScreen.SetActive(false);
@@ -72,7 +72,7 @@ public class Space_Ship_2D : MonoBehaviour
         } 
         else if(other.gameObject.CompareTag("Pickup")){
             score += 50;
-            // scoreText.text = "Score = " + score.ToString();
+            scoreText.text = "Score = " + score;
             Destroy(other.gameObject);
             // Score();
         }
@@ -127,14 +127,16 @@ public class Space_Ship_2D : MonoBehaviour
     }
 
     void Win() {
-        if(score >= 500)
+        if(score >= 500) {
         winScreen.SetActive(true);
+    } else {
+        winScreen.SetActive(false);
+        }
     }
-
-    public void Score() {
-        PlayerPrefs.GetInt("Score", score);
-        scoreText.text = "Score = " + score;
-    }
+    // public void Score() {
+    //     PlayerPrefs.GetInt("Score", score);
+    //     scoreText.text = "Score = " + score;
+    // }
 
     public void Restart() {
         Debug.Log("Did this work?");
