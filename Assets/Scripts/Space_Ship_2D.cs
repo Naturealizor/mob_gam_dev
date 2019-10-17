@@ -22,6 +22,7 @@ public class Space_Ship_2D : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         rb = this.GetComponent<Rigidbody2D>();
         scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
         // GameObject ScoreText 
@@ -76,7 +77,7 @@ public class Space_Ship_2D : MonoBehaviour
             Destroy(other.gameObject);
             // Score();
         }
-         else if(other.gameObject.CompareTag("Wall")) {
+         if(other.gameObject.CompareTag("Wall")) {
             health -= 100;
             youDied();
         }
