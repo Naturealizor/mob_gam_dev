@@ -7,12 +7,15 @@ using TMPro;
 
 public class Space_Ship_2D : MonoBehaviour
 {
+    float shotPower = 1;
+    bool timerIsGoing = false;
+    float timer = 0;
     public float speed = 10;
     public float rotSpeed = 10;
     public int health = 100;
     public int score = 0;
     TextMeshPro scoreText;
-    
+    // GUIText scoreText;
 
     private float turnDirection = 0;
     Rigidbody2D rb;
@@ -20,31 +23,36 @@ public class Space_Ship_2D : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshPro>();
+        // GameObject ScoreText 
         pauseMenu.SetActive(false);
         deathScreen.SetActive(false);
         resetButton.SetActive(false);
         saveButton.SetActive(false);
-        scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshPro>();
+        restartButton.SetActive(false);
+        menuButton.SetActive(false);
+        
     }
 
     // Update is called once per frame
     void Update()
     { 
-        if(Input.GetKey(KeyCode.RightArrow)) { 
-            turnDirection = -1;
-        } else if(Input.GetKey(KeyCode.LeftArrow)) {  
-            turnDirection = 1;
-        } else {
-            turnDirection = 0;
-        }
+        // if(Input.GetKey(KeyCode.RightArrow)) { 
+        //     turnDirection = -1;
+        // } else if(Input.GetKey(KeyCode.LeftArrow)) {  
+        //     turnDirection = 1;
+        // } else {
+        //     turnDirection = 0;
+        // }
 
         if(Input.GetKeyDown(KeyCode.Escape)) {
             Pause();
-        }
+        }       
         if(health == 0) {
             playerIsDead = true;
             youDied();
         }
+        
     }
 
     void FixedUpdate() 
@@ -57,24 +65,19 @@ public class Space_Ship_2D : MonoBehaviour
         if(other.gameObject.CompareTag("Asteroid")) {
             health -= 10;
             youDied();
-        } else if(other.gameObject.CompareTag("Pickup")){
+        } 
+        else if(other.gameObject.CompareTag("Pickup")){
             score += 50;
-            
+            // scoreText.text = "Score = " + score.ToString();
             Destroy(other.gameObject);
-        } else if(other.gameObject.CompareTag("Wall")) {
+            // Score();
+        }
+         else if(other.gameObject.CompareTag("Wall")) {
             health -= 100;
             youDied();
         }
-        
     }
 
-    void OnTriggerEnter(Collider other) {
-        if(other.gameObject.CompareTag("Pickup")){
-            score += 50;
-            scoreText.text = "Score = " + score;
-            Destroy(other.gameObject);
-        }
-    }
 
     public bool gameIsPaused = false;
     public bool playerIsDead = false;
@@ -84,6 +87,8 @@ public class Space_Ship_2D : MonoBehaviour
     public GameObject deathScreen;
     public GameObject restartButton;
     public GameObject menuButton;
+    
+
 
 
     void Pause() {
@@ -114,11 +119,10 @@ public class Space_Ship_2D : MonoBehaviour
         } else {
             deathScreen.SetActive(false);
         }
-
-
     }
 
     public void Score() {
+        PlayerPrefs.GetInt("Score", score);
         scoreText.text = "Score = " + score;
     }
 
@@ -128,8 +132,8 @@ public class Space_Ship_2D : MonoBehaviour
         Load();
     }
 
-    public void Menu() {
-        SceneManager.LoadScene("Title_Screen");
+    public void Menu(int index = 6) {
+        SceneManager.LoadScene(index);
     }
 
     public void Save() {
