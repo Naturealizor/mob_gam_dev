@@ -10,6 +10,7 @@ TagManager:
   - Asteroid
   - BtnLeft
   - BtnRight
+  - Wall
   layers:
   - Default
   - TransparentFX
