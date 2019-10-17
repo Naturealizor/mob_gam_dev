@@ -31,6 +31,7 @@ public class Space_Ship_2D : MonoBehaviour
         saveButton.SetActive(false);
         restartButton.SetActive(false);
         menuButton.SetActive(false);
+        winScreen.SetActive(false);
         
     }
 
@@ -51,6 +52,9 @@ public class Space_Ship_2D : MonoBehaviour
         if(health == 0) {
             playerIsDead = true;
             youDied();
+        }
+        if(score >= 500) {
+            Win();
         }
         
     }
@@ -87,6 +91,7 @@ public class Space_Ship_2D : MonoBehaviour
     public GameObject deathScreen;
     public GameObject restartButton;
     public GameObject menuButton;
+    public GameObject winScreen;
     
 
 
@@ -119,6 +124,11 @@ public class Space_Ship_2D : MonoBehaviour
         } else {
             deathScreen.SetActive(false);
         }
+    }
+
+    void Win() {
+        if(score >= 500)
+        winScreen.SetActive(true);
     }
 
     public void Score() {
