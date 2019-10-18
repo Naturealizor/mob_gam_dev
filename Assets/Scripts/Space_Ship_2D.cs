@@ -7,11 +7,9 @@ using TMPro;
 
 public class Space_Ship_2D : MonoBehaviour
 {
-    // float shotPower = 1;
-    // bool timerIsGoing = false;
-    // float timer = 0;
-    public float speed = 10;
-    public float rotSpeed = 10;
+   
+    public float speed = 50;
+    public float rotSpeed = 5;
     public int health = 100;
     public int score = 0;
     public TextMeshProUGUI scoreText;
@@ -19,13 +17,15 @@ public class Space_Ship_2D : MonoBehaviour
 
     private float turnDirection = 0;
     Rigidbody2D rb;
+    public GameObject inGameButton;
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
         rb = this.GetComponent<Rigidbody2D>();
         scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
-        // GameObject ScoreText 
+        inGameButton = GameObject.Find("inGamePause");
+
         pauseMenu.SetActive(false);
         deathScreen.SetActive(false);
         resetButton.SetActive(false);
@@ -33,12 +33,16 @@ public class Space_Ship_2D : MonoBehaviour
         restartButton.SetActive(false);
         menuButton.SetActive(false);
         winScreen.SetActive(false);
+        continueButton.SetActive(false);
+        inGameButton.SetActive(true);
+        
         
     }
 
     // Update is called once per frame
     void Update()
     { 
+
         // if(Input.GetKey(KeyCode.RightArrow)) { 
         //     turnDirection = -1;
         // } else if(Input.GetKey(KeyCode.LeftArrow)) {  
@@ -51,6 +55,7 @@ public class Space_Ship_2D : MonoBehaviour
             Pause();
         }       
         if(health == 0) {
+            Time.timeScale = 0;
             playerIsDead = true;
             youDied();
         }
@@ -62,6 +67,7 @@ public class Space_Ship_2D : MonoBehaviour
 
     void FixedUpdate() 
     {
+         
         rb.AddRelativeForce(Vector2.up * speed);
         rb.AddTorque(turnDirection * rotSpeed, 0);
     }
@@ -75,7 +81,6 @@ public class Space_Ship_2D : MonoBehaviour
             score += 50;
             scoreText.text = "Score = " + score;
             Destroy(other.gameObject);
-            // Score();
         }
          if(other.gameObject.CompareTag("Wall")) {
             health -= 100;
@@ -93,9 +98,9 @@ public class Space_Ship_2D : MonoBehaviour
     public GameObject restartButton;
     public GameObject menuButton;
     public GameObject winScreen;
+    public GameObject continueButton;
     
-
-
+    
 
     void Pause() {
         if(gameIsPaused) {
@@ -109,6 +114,7 @@ public class Space_Ship_2D : MonoBehaviour
             pauseMenu.SetActive(true);
             resetButton.SetActive(true);
             saveButton.SetActive(true);
+            continueButton.SetActive(true);
             Save();
         }
 
@@ -117,11 +123,13 @@ public class Space_Ship_2D : MonoBehaviour
     }
 
     void youDied() {
+        // if player is dead, destroy the ship and active the death screen.
             if (playerIsDead) {
                 Destroy(this.gameObject);
                 deathScreen.SetActive(true);
                 restartButton.SetActive(true);
                 menuButton.SetActive(true);
+                inGameButton.SetActive(false);
         } else {
             deathScreen.SetActive(false);
         }
@@ -129,20 +137,26 @@ public class Space_Ship_2D : MonoBehaviour
 
     void Win() {
         if(score >= 500) {
+            Time.timeScale = 0;
         winScreen.SetActive(true);
     } else {
         winScreen.SetActive(false);
         }
     }
-    // public void Score() {
-    //     PlayerPrefs.GetInt("Score", score);
-    //     scoreText.text = "Score = " + score;
-    // }
+    public void inGamePause() {
+        Time.timeScale = 0;
+        Pause();
+    }
+
+    public void Continue() {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        // Load();
+    }
 
     public void Restart() {
-        Debug.Log("Did this work?");
         SceneManager.LoadScene("Space_Collector");
-        Load();
+        // Load();
     }
 
     public void Menu(int index = 6) {
@@ -162,15 +176,11 @@ public class Space_Ship_2D : MonoBehaviour
    public void Reset() {
         PlayerPrefs.SetInt("Health", 100);
         PlayerPrefs.SetInt("Score", 0);
+        scoreText.text = "Score = " + score;
         Load();
     }
 
     public void UpdateTurnDirection(int direction) {
         turnDirection = direction;
     }
-
-    // public void Death() {
-        
-    // }
-
 }

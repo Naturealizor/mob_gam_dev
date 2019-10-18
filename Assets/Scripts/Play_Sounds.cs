@@ -17,10 +17,10 @@ public class Play_Sounds : MonoBehaviour
 
     // update is called once per frame
     void Update() {
-        if(Input.anyKeyDown) {
-            aud.PlayOneShot(sounds[Random.Range(0, sounds.Length)]);
+        // if(Input.anyKeyDown) {
+        //     aud.PlayOneShot(sounds[Random.Range(0, sounds.Length)]);
             // Destroy(this.gameObject, 1);
             // Destroy(this.GetComponent<Renderer>());
-        }
+        
     }
 }
